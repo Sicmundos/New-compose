@@ -149,6 +149,12 @@ services:
     image: library/postgres:10-alpine
     environment:
       POSTGRES_PASSWORD: portus
+  webpack:
+    image: kkarczmarczyk/node-yarn:latest
+    command: bash /srv/Portus/examples/development/compose/bootstrap-webpack
+    working_dir: /srv/Portus
+    volumes:
+      - .:/srv/Portus
 
 volumes:
   static:
